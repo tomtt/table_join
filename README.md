@@ -1,8 +1,6 @@
 # TableJoin
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/table_join`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem allows arrays of hashes that resemble database table like data to be joined like database tables can be joined.
 
 ## Installation
 
@@ -22,7 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+For example:
+
+town_names = [
+  { town_id: 'ams', name: 'Amsterdam' },
+  { town_id: 'par', name: 'Paris' }
+]
+
+town_countries = [
+  { town_id: 'ams', country: 'The Netherlands' },
+  { town_id: 'par', country: 'France' }
+]
+
+table_join(town_names, town_countries, join_key: :town_id) =>
+[
+  { town_id: 'ams', name: 'Amsterdam', country: 'The Netherlands' },
+  { town_id: 'par', name: 'Paris', country: 'France' }
+]
 
 ## Development
 
